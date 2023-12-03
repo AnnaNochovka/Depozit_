@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="link/style.css" rel="stylesheet" type="text/css" />
+    <title>Depozit</title>
+</head>
+<body class="body">
+    <header>
+        <div class="wrap"><img class="head" src="https://www.eximb.com/assets/images/post/valutadeposit-1110.jpg"></div>
+    </header>
+    <nav>
+        <ul>
+            <li class="li"><a class="a" href=index.html>Головна</a></li>
+            <li class="li"><a class="a" href=index2.html>Депозит</a></li>
+            <li class="active"><a class="a" href=index3.html>Калькулятор</a></li>
+            <li class="li"><a class="a" href=index4.html>Тестування</a></li>
+            <li class="li"><a class="a" href=avtor.html>Про автора</a></li>
+        </ul>
+    </nav>
+    <main>
+    <aside class="left">
+        <p class="title">Банківський депозит - це фінансова угода між клієнтом (вкладником) і комерційним банком, в рамках якої клієнт згоден покласти свої гроші на рахунок у банку на певний строк з метою заробітку на відсотках.</p> </aside>
+    <article class="right">
+        <h1 class="h">Калькулятор</h1>
+        <div>
+        <h5>Введіть початкову суму вкладу.</h5>
+         <input type="text" id = "input_a">
+         <h5>Введіть річну процентну ставку (виду 10%=10).</h5>
+         <input type="text" id = "input_b">
+         <h5>Оберіть термін вкладу в роках.</h5>
+         <select name="" id="act">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <h5>Сума грошей наприкінці терміну.</h5>
+         <input type="text" id = "input_d">
+         <button id = "btn">Розрахувати</button>
+    </div>
+    <script>
+        function fnc(){
+            let a = parseInt(input_a.value);
+            let b = parseInt(input_b.value);
+            var el=document.getElementById('act');
+        console.log(el.value);
+            var d;
+            if (el.value ==1){d = a*(1+b*1/100);}
+            if (el.value ==2){d = a*(1+b*2/100);}
+            if (el.value ==3){d = a*(1+b*3/100);}
+            if (el.value ==4){d = a*(1+b*4/100);}
+            if (el.value ==5){d = a*(1+b*5/100);}
+            if (el.value ==6){d = a*(1+b*6/100);}
+            if (el.value ==7){d = a*(1+b*7/100);}
+            if (el.value ==8){d = a*(1+b*8/100);}
+            if (el.value ==9){d = a*(1+b*9/100);}
+            if (el.value ==10){d = a*(1+b*10/100);}
+
+            input_d.value = d;
+            console.log(d);
+        }
+        btn.addEventListener("click",fnc);
+    </script>
+    <h1 class="h">Задача на закріплення матеріалу</h1>
+
+    <p>Відомо, що вкладник вклав х грн грошей в банк під у%. Знайдіть всі можливі варіанти вкладів, якщо на кінець терміну банк має виплатити 2400грн. </p>
+    Оберіть на скільки років ви вклали депозит:
+    <select name="" id="a">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <br>
+    Оберіть під який відсоток:
+    <select name="" id="b">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+    </select>
+    <br>
+    Оберіть початкову суму вкладу:
+    <select name="" id="c">
+        <option value="1000">1000</option>
+        <option value="1500">1500</option>
+        <option value="2000">2000</option>
+        <option value="2500">2500</option>
+    </select>
+    <p id="result"></p>
+    <script>
+        val_a = document.getElementById("a");
+        val_b = document.getElementById("b");
+        val_c = document.getElementById("c");
+        res = document.getElementById("result");
+        val_a.addEventListener("change",func_a);
+
+        val_b.addEventListener("change",func_b);
+        val_c.addEventListener("change",func_c);
+        function func_a(){
+            console.log(val_a.value);
+            console.log(val_b.value);
+            console.log(val_c.value);
+            r = parseInt(val_a.value);
+            d = parseInt(val_b.value);
+            f = parseInt(val_c.value);
+            console.log(d);
+            console.log(r);
+            console.log(f);
+            s = f*(1+r*d/100);
+
+            str = "Сума депозиту: "+s; 
+            res.innerHTML=str;
+
+            if (s==2400){
+                alert('Правильна відповідь');
+            }
+            else{
+                alert('Неправильна відповідь');
+            }
+            
+            
+        }
+        function func_b(){
+            console.log(val_a.value);
+            console.log(val_b.value);
+            console.log(val_c.value);
+            r = parseInt(val_a.value);
+            d = parseInt(val_b.value);
+            f = parseInt(val_c.value);
+            console.log(d);
+            console.log(r);
+            console.log(f);
+            s = f*(1+r*d/100);
+            
+            str = "Сума депозиту: "+s; 
+            res.innerHTML=str;
+
+            if (s==2400){
+                alert('Правильна відповідь');
+            }
+            else{
+                alert('Неправильна відповідь');
+            }
+        }
+        function func_c(){
+            console.log(val_a.value);
+            console.log(val_b.value);
+            console.log(val_c.value);
+            r = parseInt(val_a.value);
+            d = parseInt(val_b.value);
+            f = parseInt(val_c.value);
+            console.log(d);
+            console.log(r);
+            console.log(f);
+            s = f*(1+r*d/100);
+            
+            str = "Сума депозиту: "+s; 
+            res.innerHTML=str;
+
+            if (s==2400){
+                alert('Правильна відповідь');
+            }
+            else{
+                alert('Неправильна відповідь');
+            }
+        }
+
+    
+
+    </script>
+
+
+
+    </article>
+    </main>
+    <footer>© 2023 Всі права захищені</footer>
+</body>
+</html>
